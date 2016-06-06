@@ -2,8 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#020202"
-    tools:context="com.example.aditya.postgamescreen.PostGame">
+    android:background="#000000"
+    android:id="@+id/layout"
+    tools:context=".TempClass">
 
     <ImageButton
         android:layout_width="150dp"
@@ -50,7 +51,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/leaderboardID"
-        android:layout_alignParentStart="true"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -63,6 +64,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/ranksID"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -75,6 +77,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank1"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -87,6 +90,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank2"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -99,6 +103,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank3"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -111,6 +116,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank4"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -123,6 +129,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank5"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -135,6 +142,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank6"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -147,6 +155,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank7"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -159,6 +168,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank8"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -171,6 +181,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_below="@+id/rank9"
+        android:layout_alignLeft="@id/leaderboardID"
         android:background="@drawable/table_cells" />
 
     <TextView
@@ -210,7 +221,7 @@
         android:layout_below="@+id/leaderboardID"/>
 
     <TableLayout
-        android:layout_width="141dp"
+        android:layout_width="match_parent"
         android:layout_height="265dp"
         android:layout_above="@+id/leaderboardBottom"
         android:layout_below="@+id/namesID"
@@ -224,11 +235,12 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="..."
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time1"
                 android:layout_column="0" />
         </TableRow>
@@ -240,11 +252,12 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="..."
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time2"
                 android:layout_column="0" />
         </TableRow>
@@ -256,13 +269,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time3"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -272,11 +286,12 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="..."
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time4"
                 android:layout_column="0" />
         </TableRow>
@@ -288,13 +303,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time5"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -304,13 +320,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time6"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -320,11 +337,12 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="..."
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time7"
                 android:layout_column="0" />
         </TableRow>
@@ -336,13 +354,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time8"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -352,13 +371,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time9"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -368,36 +388,42 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/time10"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
     </TableLayout>
 
     <TableLayout
-        android:layout_width="141dp"
+        android:layout_width="match_parent"
         android:layout_height="265dp"
+        android:layout_alignLeft="@+id/timesID"
+        android:layout_alignRight="@+id/timesID"
         android:layout_above="@+id/leaderboardBottom"
-        android:layout_below="@+id/namesID"
+        android:layout_below="@+id/timesID"
         android:layout_toEndOf="@+id/nameList"
-        android:id="@+id/scoreList">
+        android:id="@+id/timeList">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:background="@drawable/table_cells">
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="..."
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name1"
                 android:layout_column="0" />
         </TableRow>
@@ -409,13 +435,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name2"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -425,13 +452,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name3"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -441,13 +469,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name4"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -457,13 +486,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name5"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -473,13 +503,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name6"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -489,13 +520,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name7"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -505,13 +537,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name8"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
 
         <TableRow
@@ -521,11 +554,12 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="..."
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name9"
                 android:layout_column="0" />
         </TableRow>
@@ -537,13 +571,14 @@
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="#ffffffff"
+                android:textStyle="bold"
                 android:id="@+id/name10"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:text="..." />
         </TableRow>
     </TableLayout>
 
