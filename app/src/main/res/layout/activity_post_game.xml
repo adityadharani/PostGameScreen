@@ -210,7 +210,7 @@
         android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Time"
+        android:text="    Time"
         android:background="@drawable/table_cells"
         android:textColor="#ffffffff"
         android:gravity="center"
@@ -221,12 +221,190 @@
         android:layout_below="@+id/leaderboardID"/>
 
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="141dp"
         android:layout_height="265dp"
         android:layout_above="@+id/leaderboardBottom"
         android:layout_below="@+id/namesID"
         android:layout_toEndOf="@+id/rank1"
         android:id="@+id/nameList">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name1"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name2"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name3"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name4"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name5"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name6"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name7"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name8"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name9"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/table_cells">
+
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center"
+                android:layout_width="141dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:id="@+id/name10"
+                android:layout_column="0"
+                android:text="..." />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="141dp"
+        android:layout_height="265dp"
+        android:layout_below="@+id/namesID"
+        android:layout_toEndOf="@+id/nameList"
+        android:id="@+id/timeList">
 
         <TableRow
             android:layout_width="match_parent"
@@ -396,189 +574,6 @@
                 android:id="@+id/time10"
                 android:layout_column="0"
                 android:text="..." />
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="265dp"
-        android:layout_alignLeft="@+id/timesID"
-        android:layout_alignRight="@+id/timesID"
-        android:layout_above="@+id/leaderboardBottom"
-        android:layout_below="@+id/timesID"
-        android:layout_toEndOf="@+id/nameList"
-        android:id="@+id/timeList">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name1"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name2"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name3"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name4"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name5"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name6"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name7"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name8"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name9"
-                android:layout_column="0" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/table_cells">
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffffff"
-                android:textStyle="bold"
-                android:text="..."
-                android:id="@+id/name10"
-                android:layout_column="0" />
         </TableRow>
     </TableLayout>
 
