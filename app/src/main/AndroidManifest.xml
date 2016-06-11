@@ -28,6 +28,13 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
+
+        <activity
+            android:name=".UserInputPopUp"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Translucent"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

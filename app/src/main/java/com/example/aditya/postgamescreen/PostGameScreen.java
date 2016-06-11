@@ -1,16 +1,11 @@
 package com.example.aditya.postgamescreen;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputFilter;
-import android.text.InputType;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -22,6 +17,8 @@ import android.widget.Toast;
 public class PostGameScreen extends AppCompatActivity
 {
     private String time;
+    private String name;
+    private boolean updated;
     private TableLayout nameList;
     private TableLayout timeList;
     AlertDialog.Builder builder;
@@ -33,12 +30,19 @@ public class PostGameScreen extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_game);
 
+        //gets time from previous activity
         time = getIntent().getStringExtra("time");
+
+        //makes variable to represent anything needed to be manipulated on screen
         nameList = (TableLayout) findViewById(R.id.nameList);
         timeList = (TableLayout) findViewById(R.id.timeList);
+
+        name = "";
+        updated = false;
         savedData = this.getSharedPreferences("leaderboardData", MODE_PRIVATE);
         editor = savedData.edit();
 
+        //transfers all saved names from file to leaderboard
         for (int i = 0; i < nameList.getChildCount(); i++)
         {
             TableRow row = (TableRow) nameList.getChildAt(i);
@@ -46,64 +50,62 @@ public class PostGameScreen extends AppCompatActivity
             textView.setText(savedData.getString("nameDataPos" + i, "..."));
         }
 
+        //transfers all saved times from file to leaderboard
         for (int i = 0; i < timeList.getChildCount(); i++) {
             TableRow row = (TableRow) timeList.getChildAt(i);
             TextView textView =  (TextView)row.getChildAt(0);
             textView.setText(savedData.getString("timeDataPos" + i, "..."));;
         }
 
-
-
-        builder = new AlertDialog.Builder(this);
-        builder.setTitle("You Have Died");
-        final EditText nameInputted = new EditText(this);
-        nameInputted.setFilters(new InputFilter[] { new InputFilter.LengthFilter(8)});
-        nameInputted.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        nameInputted.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
-        nameInputted.setHint("Enter your name");
-        builder.setView(nameInputted);
-        builder.setCancelable(false);
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener()
+        //if the user made the leaderboard, open dialog that asks for name
+        if (updatePossible(time))
         {
-            public void onClick(DialogInterface dialog, int which)
-            {
-                if (!nameInputted.getText().toString().isEmpty())
-                {
-                    updateLeaderboard(nameInputted.getText().toString(), time);
-                }
-                else
-                {
-                    updateLeaderboard("ANON", time);
-                }
-
-            }
-        });
-
-        builder.show();
-
+            Intent intent = new Intent(getApplicationContext(), UserInputPopUp.class);
+            startActivityForResult(intent, 1);
+        }
 
     }
 
+    //get data from name dialog
     @Override
-    public void onBackPressed() {
-        builder.show();
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1)
+        {
+            if (resultCode == RESULT_OK)
+            {
+                name = data.getStringExtra("name");
+                updateLeaderboard(name, time);
+            }
+        }
     }
 
+    //returns whether or not user made the leaderboard and displays message if they did not
+    public boolean updatePossible(String time)
+    {
+        for (int i = 0; i < timeList.getChildCount(); i++)
+        {
+            TextView currTime = (TextView)(((TableRow)timeList.getChildAt(i)).getChildAt(0));
+
+            if((getLargerTime(time, currTime.getText().toString())).equals(time))
+            {
+                return true;
+            }
+        }
+        Toast failMessage = Toast.makeText(getApplicationContext(),
+                "You did not make the leaderboard :(", Toast.LENGTH_LONG);
+        failMessage.show();
+        return false;
+    }
 
     //places user input appropriately on the leaderboard by comparing input to already existing values
     private void updateLeaderboard(String name, String time)
     {
-        Toast failMessage = Toast.makeText(getApplicationContext(),
-                "You did not make the leaderboard :(", Toast.LENGTH_LONG);
 
-        for (int i = 0; i <= timeList.getChildCount(); i++)
+
+        for (int i = 0; i < timeList.getChildCount(); i++)
         {
-            if(i == timeList.getChildCount())
-            {
-                failMessage.show();
-                break;
-            }
-
             TextView currName = (TextView)(((TableRow)nameList.getChildAt(i)).getChildAt(0));
             TextView currTime = (TextView)(((TableRow)timeList.getChildAt(i)).getChildAt(0));
 
@@ -123,6 +125,7 @@ public class PostGameScreen extends AppCompatActivity
                 currName.setText(name);
                 currTime.setText(time);
 
+                //saves data
                 for (int k = 0; k < nameList.getChildCount(); k++)
                 {
                     editor.putString("nameDataPos" + k, ((TextView)(((TableRow)nameList.
@@ -135,50 +138,6 @@ public class PostGameScreen extends AppCompatActivity
                 break;
             }
         }
-
-        /*for (int i = 0; i <= nameList.getChildCount(); i++)
-        {
-            if (i == nameList.getChildCount())
-            {
-                failMessage.show();
-                break;
-            }
-
-            TextView timeAt = getTextViewInTableRow(timeList.getChildAt(i));
-            String strTimeAt = timeAt.getText().toString();
-
-            if (strTimeAt.equals("..."))
-            {
-                getTextViewInTableRow(nameList.getChildAt(i)).setText(name);
-                timeAt.setText(time);
-                editor.putString("nameDataPos" + i, name);
-                editor.putString("timeDataPos" + i, time);
-                editor.apply();
-                break;
-            }
-            else if (getLargerTime(time, strTimeAt).equals(time))
-            {
-                for (int j = nameList.getChildCount() - 1; j >= i; j--)
-                {
-                    if (i == j)
-                    {
-                        getTextViewInTableRow(nameList.getChildAt(i)).setText(name);
-                        timeAt.setText(time);
-                        editor.putString("nameDataPos" + i, name);
-                        editor.putString("timeDataPos" + i, time);
-                        editor.apply();
-                        break;
-                    }
-                    getTextViewInTableRow(timeList.getChildAt(j)).setText(getTextViewInTableRow
-                            (timeList.getChildAt(j - 1)).getText());
-
-                    getTextViewInTableRow(nameList.getChildAt(j)).setText(getTextViewInTableRow
-                            (nameList.getChildAt(j - 1)).getText());
-                }
-
-                break;
-            }
-        } */
     }
 
     //returns the TextView object found in a TableRow
@@ -212,5 +171,14 @@ public class PostGameScreen extends AppCompatActivity
 
         return "neither";
     }
+
+    //makes sure nothing happens if back button is pressed
+    @Override
+    public void onBackPressed()
+    {
+
+    }
+
 }
+
 
