@@ -400,9 +400,12 @@
     </TableLayout>
 
     <TableLayout
-        android:layout_width="141dp"
+        android:layout_width="match_parent"
         android:layout_height="265dp"
-        android:layout_below="@+id/namesID"
+        android:layout_alignLeft="@+id/timesID"
+        android:layout_alignRight="@+id/timesID"
+        android:layout_above="@+id/leaderboardBottom"
+        android:layout_below="@+id/timesID"
         android:layout_toEndOf="@+id/nameList"
         android:id="@+id/timeList">
 
@@ -414,7 +417,7 @@
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:gravity="center"
-                android:layout_width="141dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffffff"
                 android:textStyle="bold"

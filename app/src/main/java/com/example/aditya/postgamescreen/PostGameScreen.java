@@ -1,6 +1,7 @@
 package com.example.aditya.postgamescreen;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -22,6 +24,7 @@ public class PostGameScreen extends AppCompatActivity
     private String time;
     private TableLayout nameList;
     private TableLayout timeList;
+    AlertDialog.Builder builder;
     private SharedPreferences savedData;
     private SharedPreferences.Editor editor;
 
@@ -49,7 +52,9 @@ public class PostGameScreen extends AppCompatActivity
             textView.setText(savedData.getString("timeDataPos" + i, "..."));;
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+
+        builder = new AlertDialog.Builder(this);
         builder.setTitle("You Have Died");
         final EditText nameInputted = new EditText(this);
         nameInputted.setFilters(new InputFilter[] { new InputFilter.LengthFilter(8)});
@@ -57,18 +62,32 @@ public class PostGameScreen extends AppCompatActivity
         nameInputted.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
         nameInputted.setHint("Enter your name");
         builder.setView(nameInputted);
+        builder.setCancelable(false);
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener()
         {
             public void onClick(DialogInterface dialog, int which)
             {
-                updateLeaderboard(nameInputted.getText().toString(), time);
+                if (!nameInputted.getText().toString().isEmpty())
+                {
+                    updateLeaderboard(nameInputted.getText().toString(), time);
+                }
+                else
+                {
+                    updateLeaderboard("ANON", time);
+                }
+
             }
         });
 
         builder.show();
+
+
     }
 
-
+    @Override
+    public void onBackPressed() {
+        builder.show();
+    }
 
 
     //places user input appropriately on the leaderboard by comparing input to already existing values

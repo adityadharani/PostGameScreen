@@ -21,7 +21,7 @@ public class TempClass extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.temp_get_time);
 
-        input = (EditText)findViewById(R.id.input);
+        input = (EditText)findViewById(R.id.nameInput);
         time = null;
 
         input.setOnEditorActionListener(new TextView.OnEditorActionListener() {
