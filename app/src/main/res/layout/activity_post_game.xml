@@ -399,11 +399,10 @@
         </TableRow>
     </TableLayout>
 
+
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="141dp"
         android:layout_height="265dp"
-        android:layout_alignLeft="@+id/timesID"
-        android:layout_alignRight="@+id/timesID"
         android:layout_above="@+id/leaderboardBottom"
         android:layout_below="@+id/timesID"
         android:layout_toEndOf="@+id/nameList"
