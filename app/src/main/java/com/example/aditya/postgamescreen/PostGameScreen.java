@@ -16,6 +16,7 @@ public class PostGameScreen extends AppCompatActivity
 {
     private String time;
     private String name;
+    public boolean updated;
     private TableLayout nameList;
     private TableLayout timeList;
     private SharedPreferences savedData;
