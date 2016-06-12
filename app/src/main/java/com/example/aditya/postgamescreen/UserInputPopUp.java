@@ -25,23 +25,21 @@ public class UserInputPopUp extends AppCompatActivity {
         //When User clicks done, checks if they actually entered something. If they did, it closes
         input.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    if (input.getText().toString() != "")
-                    {
-                        Intent intent = new Intent();
-                        intent.putExtra("name", input.getText().toString());
-                        setResult(RESULT_OK, intent);
-                        finish();
-                        return true;
-                    }
-                    else
-                    {
-                        Toast toast = Toast.makeText(getApplicationContext(),
-                                "Please enter a name", Toast.LENGTH_LONG);
-                        toast.show();
-                        return false;
-                    }
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                if (!input.getText().toString().isEmpty())
+                {
+                    Intent intent = new Intent();
+                    intent.putExtra("name", input.getText().toString());
+                    setResult(RESULT_OK, intent);
+                    finish();
+                    return true;
+                }
+                else
+                {
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "That's not a name", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
                 return false;
             }
