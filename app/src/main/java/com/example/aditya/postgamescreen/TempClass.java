@@ -24,10 +24,13 @@ public class TempClass extends AppCompatActivity
         input = (EditText)findViewById(R.id.nameInput);
         time = null;
 
-        input.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        input.setOnEditorActionListener(new TextView.OnEditorActionListener()
+        {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                if (actionId == EditorInfo.IME_ACTION_DONE)
+                {
                     String strInput = input.getText().toString();
 
                     //makes sure that the data inputted is in a logical format before displaying
@@ -35,7 +38,8 @@ public class TempClass extends AppCompatActivity
                     if (strInput.length() != 5 || strInput.indexOf(":") != strInput.lastIndexOf(":")
                             || strInput.indexOf(":") != 2
                             || strInput.indexOf(":") != strInput.lastIndexOf(":")
-                            || Integer.parseInt(strInput.substring(strInput.indexOf(":") + 1)) >= 60) {
+                            || Integer.parseInt(strInput.substring(strInput.indexOf(":") + 1)) >= 60)
+                    {
                         Toast toast = Toast.makeText(getApplicationContext(), "Invalid input",
                                 Toast.LENGTH_SHORT);
                         toast.show();
@@ -45,7 +49,8 @@ public class TempClass extends AppCompatActivity
                     else
                     {
                         time = strInput;
-                        Intent intent = new Intent(getApplicationContext(), PostGameScreen.class).putExtra("time", time);
+                        Intent intent = new Intent(getApplicationContext(), PostGameScreen.class)
+                                .putExtra("time", time);
                         startActivity(intent);
                         finish();
                         return true;

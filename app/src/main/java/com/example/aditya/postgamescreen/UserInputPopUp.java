@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +37,7 @@ public class UserInputPopUp extends AppCompatActivity {
                 else
                 {
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "That's not a name", Toast.LENGTH_SHORT);
+                            "Nothing entered", Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 return false;
@@ -47,7 +46,7 @@ public class UserInputPopUp extends AppCompatActivity {
         });
     }
 
-    //Makes sure the user doesn't close activity by clicking back button
+    //makes sure nothing happens if back button is pressed
     public void onBackPressed()
     {
 

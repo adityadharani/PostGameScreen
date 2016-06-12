@@ -1,11 +1,9 @@
 package com.example.aditya.postgamescreen;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -18,10 +16,8 @@ public class PostGameScreen extends AppCompatActivity
 {
     private String time;
     private String name;
-    private boolean updated;
     private TableLayout nameList;
     private TableLayout timeList;
-    AlertDialog.Builder builder;
     private SharedPreferences savedData;
     private SharedPreferences.Editor editor;
 
@@ -42,22 +38,17 @@ public class PostGameScreen extends AppCompatActivity
         savedData = this.getSharedPreferences("leaderboardData", MODE_PRIVATE);
         editor = savedData.edit();
 
-        //transfers all saved names from file to leaderboard
+        //transfers all saved names and times from file to leaderboard
         for (int i = 0; i < nameList.getChildCount(); i++)
         {
-            TableRow row = (TableRow) nameList.getChildAt(i);
-            TextView textView =  (TextView)row.getChildAt(0);
-            textView.setText(savedData.getString("nameDataPos" + i, "..."));
+            TextView nameText = (TextView)(((TableRow) nameList.getChildAt(i)).getChildAt(0));
+            nameText.setText(savedData.getString("nameDataPos" + i, "..."));
+
+            TextView timeText = (TextView)(((TableRow) timeList.getChildAt(i)).getChildAt(0));
+            timeText.setText(savedData.getString("timeDataPos" + i, "..."));
         }
 
-        //transfers all saved times from file to leaderboard
-        for (int i = 0; i < timeList.getChildCount(); i++) {
-            TableRow row = (TableRow) timeList.getChildAt(i);
-            TextView textView =  (TextView)row.getChildAt(0);
-            textView.setText(savedData.getString("timeDataPos" + i, "..."));;
-        }
-
-        //if the user made the leaderboard, open dialog that asks for name
+        //if the user made the leaderboard, open popup window that asks for name
         if (updatePossible(time))
         {
             Intent intent = new Intent(getApplicationContext(), UserInputPopUp.class);
@@ -66,7 +57,7 @@ public class PostGameScreen extends AppCompatActivity
 
     }
 
-    //get data from name dialog
+    //get data from popup window
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -102,8 +93,6 @@ public class PostGameScreen extends AppCompatActivity
     //places user input appropriately on the leaderboard by comparing input to already existing values
     private void updateLeaderboard(String name, String time)
     {
-
-
         for (int i = 0; i < timeList.getChildCount(); i++)
         {
             TextView currName = (TextView)(((TableRow)nameList.getChildAt(i)).getChildAt(0));
@@ -113,10 +102,14 @@ public class PostGameScreen extends AppCompatActivity
             {
                 for (int j = nameList.getChildCount() - 1; j > i ; j--)
                 {
-                    TextView timeAt = (TextView)(((TableRow)timeList.getChildAt(j)).getChildAt(0));
-                    TextView prevTime = (TextView)(((TableRow)timeList.getChildAt(j - 1)).getChildAt(0));
-                    TextView nameAt = (TextView)(((TableRow)nameList.getChildAt(j)).getChildAt(0));
-                    TextView prevName = (TextView)(((TableRow)nameList.getChildAt(j - 1)).getChildAt(0));
+                    TextView timeAt = (TextView)
+                            (((TableRow)timeList.getChildAt(j)).getChildAt(0));
+                    TextView prevTime = (TextView)
+                            (((TableRow)timeList.getChildAt(j - 1)).getChildAt(0));
+                    TextView nameAt = (TextView)
+                            (((TableRow)nameList.getChildAt(j)).getChildAt(0));
+                    TextView prevName = (TextView)
+                            (((TableRow)nameList.getChildAt(j - 1)).getChildAt(0));
 
                     nameAt.setText(prevName.getText().toString());
                     timeAt.setText(prevTime.getText().toString());
@@ -138,13 +131,6 @@ public class PostGameScreen extends AppCompatActivity
                 break;
             }
         }
-    }
-
-    //returns the TextView object found in a TableRow
-    private TextView getTextViewInTableRow(View view)
-    {
-        TableRow row = (TableRow)view;
-        return (TextView) row.getChildAt(0);
     }
 
     //returns the larger of two times, or the String "neither" if they have the same value
