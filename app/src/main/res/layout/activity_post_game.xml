@@ -210,7 +210,7 @@
         android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="    Time"
+        android:text="Time"
         android:background="@drawable/table_cells"
         android:textColor="#ffffffff"
         android:gravity="center"
